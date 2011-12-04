@@ -1,0 +1,27 @@
+# Main Nginx configuration file that sets the user to run as, the amount of
+# worker processes, etc.
+#
+# Last update: <%= Time.new.strftime('%Y-%m-%d %H:%M') %>
+user             <%= user %> <%= group %>;
+worker_processes <%= workers %>;
+daemon           <%= daemon == true ? 'on' : 'off' %>;
+
+error_log <%= error_log %>;
+pid       <%= pid %>;
+
+events
+{
+    worker_connections <%= connections %>;
+}
+
+http
+{
+    include           mime.types;
+    default_type      application/octet-stream;
+    sendfile          on;
+    tcp_nopush        on;
+    keepalive_timeout 60;
+
+    include <%= gzip_include %>;
+    include <%= File.join(hosts, '*') %>;
+}

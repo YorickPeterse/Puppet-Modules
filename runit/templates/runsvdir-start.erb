@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Helper command for starting all active Runit services.
+#
+# Last update: <%= Time.new.strftime('%Y-%m-%d %H:%M') %>
+
+exec /sbin/runsvdir -P <%= active_services %> \
+  'log: ......................................................................'
