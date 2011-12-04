@@ -29,7 +29,6 @@ to get Puppet to work:
 * openssl
 * ruby
 * git
-* vim
 * sudo (not required when puppet runs as root)
 * inetutils
 * net-tools (provides ifconfig, etc)
