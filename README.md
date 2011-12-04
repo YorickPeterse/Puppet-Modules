@@ -41,6 +41,11 @@ Once installed you'll have to create a user and group for Puppet:
 
 Once all this has been done you should be good to go.
 
+## Installation
+
+    $ git clone git://github.com/YorickPeterse/Puppet-Modules.git puppet_modules
+    $ cp -r puppet_modules /etc/puppet/modules
+
 ## License
 
 The code in this repository is licensed under the MIT license. A copy of this
