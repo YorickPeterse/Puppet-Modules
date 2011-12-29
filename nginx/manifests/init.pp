@@ -89,7 +89,7 @@ class nginx(
 
   # Would be nice if Nginx is actually installed.
   package { 'nginx':
-    ensure => ensure,
+    ensure => $ensure,
     notify => Exec['delete-defaults'],
   }
 
