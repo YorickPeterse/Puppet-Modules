@@ -47,6 +47,7 @@ define runit::service(
       owner   => $::runit::user,
       group   => $::runit::group,
       mode    => 0770,
+      recurse => true,
       require => File[$::runit::available_services],
     }
 
@@ -87,6 +88,7 @@ define runit::service(
       owner   => $::runit::user,
       group   => $::runit::group,
       mode    => 0770,
+      recurse => true,
       require => File[$available],
     }
   }
