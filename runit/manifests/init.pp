@@ -58,7 +58,8 @@ class runit(
   # Directory with all the available services.
   file { $available_services:
     ensure  => directory,
-    mode    => 0644,
+    mode    => 0770,
+    recurse => true,
     owner   => $user,
     group   => $group,
     require => Group[$group]
@@ -67,10 +68,10 @@ class runit(
   # Directory containing all active services.
   file { $active_services:
     ensure  => directory,
-    mode    => 0644,
+    mode    => 0770,
+    recurse => true,
     owner   => $user,
     group   => $group,
-    require => Group[$group]
   }
 
   file { '/sbin/runsvdir-start':
