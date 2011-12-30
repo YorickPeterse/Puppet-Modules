@@ -1,7 +1,5 @@
 # Main Nginx configuration file that sets the user to run as, the amount of
 # worker processes, etc.
-#
-# Last update: <%= Time.new.strftime('%Y-%m-%d %H:%M') %>
 user             <%= user %> <%= group %>;
 worker_processes <%= workers %>;
 daemon           <%= daemon == true ? 'on' : 'off' %>;

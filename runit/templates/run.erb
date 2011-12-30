@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 # Runit service file for <%= name %>.
-#
-# Last update: <%= Time.new.strftime('%Y-%m-%d %H:%M') %>
-
 echo "Starting service: <%= name %>"
 
 exec <%= command %> 2>&1

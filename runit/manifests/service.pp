@@ -46,7 +46,7 @@ define runit::service(
       ensure  => directory,
       owner   => $::runit::user,
       group   => $::runit::group,
-      mode    => 0644,
+      mode    => 0770,
       require => File[$::runit::available_services],
     }
 
@@ -55,7 +55,7 @@ define runit::service(
       ensure  => present,
       owner   => $::runit::user,
       group   => $::runit::group,
-      mode    => 0774,
+      mode    => 0770,
       require => File[$available],
       content => template('runit/run.erb'),
     }
@@ -86,6 +86,7 @@ define runit::service(
       target  => $available,
       owner   => $::runit::user,
       group   => $::runit::group,
+      mode    => 0770,
       require => File[$available],
     }
   }
@@ -102,7 +103,8 @@ define runit::service(
       ensure  => directory,
       owner   => $::runit::user,
       group   => $::runit::group,
-      mode    => 0644,
+      mode    => 0770,
+      recurse => true,
       require => File[$available],
     }
 
@@ -110,7 +112,7 @@ define runit::service(
       ensure  => present,
       owner   => $::runit::user,
       group   => $::runit::group,
-      mode    => 0775,
+      mode    => 0770,
       require => File[$log],
       content => template('runit/log/run.erb'),
     }
